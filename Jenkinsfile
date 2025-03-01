@@ -6,7 +6,6 @@ pipeline {
     stage ('Build Image') {
       steps {
         sh ''' 
-          printenv
           docker build -t merchantapi .
           docker tag merchantapi frankisinfotech/merchantapi:$BUILD_ID
         '''
