@@ -32,7 +32,7 @@ pipeline {
       steps {
          withEnv(["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID}", "AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY}", "AWS_DEFAULT_REGION=${env.AWS_DEFAULT_REGION}"]){ 
           // sh 'aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 765176032689.dkr.ecr.eu-west-1.amazonaws.com'
-          sh 'docker login -u AWS -p $(aws ecr get-login-password --region eu-west-1) 765176032689.dkr.ecr.eu-west-1.amazonaws.com'
+          sh 'docker login -u AWS 765176032689.dkr.ecr.eu-west-1.amazonaws.com'
           sh 'docker tag merchantapi 765176032689.dkr.ecr.eu-west-1.amazonaws.com/merchantapi:$BUILD_ID'
           sh 'docker push 765176032689.dkr.ecr.eu-west-1.amazonaws.com/merchantapi:$BUILD_ID'
       }
