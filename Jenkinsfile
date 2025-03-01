@@ -18,7 +18,7 @@ pipeline {
         }
       }
     }
-    stage ('Publish to Pub_ECR') {
+    stage ('Pub_ECR') {
       steps {
         
         sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g0b5g9q2'
