@@ -21,7 +21,7 @@ pipeline {
     stage ('Publish to Pub_ECR') {
       steps {
         
-        sh 'aws ecr-public get-login-password --region eu-west-2 | docker login --username AWS --password-stdin public.ecr.aws/g0b5g9q2'
+        sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g0b5g9q2'
             withAWS(credentials: 'aws-access', region: 'eu-west-2') {
               sh 'docker tag merchantapi public.ecr.aws/g0b5g9q2/merchantapi:$BUILD_ID'
               sh 'docker push public.ecr.aws/g0b5g9q2/merchantapi:$BUILD_ID'
