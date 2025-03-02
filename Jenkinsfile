@@ -1,6 +1,11 @@
 pipeline {
   agent any
 
+  environment {
+        ECR_REPO = "765176032689.dkr.ecr.eu-west-1.amazonaws.com/merchantapi"
+        REPOSITORY_TAG = "${ECR_REPO}:${BUILD_ID}"
+    }
+    
   stages {
 
     stage ('Build Image') {
